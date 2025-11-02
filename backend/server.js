@@ -10,6 +10,19 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Weather App API',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      weather: '/api/weather?city=CityName'
+    },
+    status: 'running'
+  });
+});
+
 // Weather API endpoint
 app.get('/api/weather', async (req, res) => {
   try {
