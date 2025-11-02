@@ -4,6 +4,9 @@ import './App.css';
 import WeatherCard from './components/WeatherCard';
 import SearchBar from './components/SearchBar';
 
+// Use environment variable for API URL in production, fallback to relative path for development
+const API_BASE_URL = process.env.REACT_APP_API_URL || '';
+
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -20,7 +23,7 @@ function App() {
     setWeatherData(null);
 
     try {
-      const response = await axios.get(`/api/weather?city=${encodeURIComponent(city)}`);
+      const response = await axios.get(`${API_BASE_URL}/api/weather?city=${encodeURIComponent(city)}`);
       setWeatherData(response.data);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to fetch weather data. Please try again.');
