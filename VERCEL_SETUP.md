@@ -26,9 +26,8 @@ git push origin main
 5. Configure the project:
    - **Framework Preset**: Other
    - **Root Directory**: `.` (leave as root)
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `frontend/build`
-   - **Install Command**: `npm install`
+   - Leave Build Command, Output Directory, and Install Command EMPTY
+   - Vercel will use the settings from `vercel.json`
 
 ### Step 3: Add Environment Variables
 
